@@ -101,31 +101,38 @@ export default function ServicesPage() {
             <Header></Header>
             <main className="flex-1">
                 {/* Enhanced Hero Section */}
-                <section className="relative w-full h-[500px] flex items-center justify-center overflow-hidden">
+                <section className="relative w-full min-h-[500px] sm:min-h-[600px] md:min-h-[700px] flex items-center justify-center overflow-hidden px-4 sm:px-6">
+                    {/* Background Gradient Layers */}
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent z-10" />
                     <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/30 z-20" />
-                    {/* Floating Elements */}
-                    <div className="absolute top-20 left-10 w-20 h-20 bg-primary/20 rounded-full blur-xl animate-pulse" />
-                    <div className="absolute bottom-20 right-10 w-32 h-32 bg-primary/10 rounded-full blur-2xl animate-pulse delay-1000" />
 
-                    <div className="relative z-30 px-4 md:px-6 text-center text-white">
-                        <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
+                    {/* Floating Elements */}
+                    <div className="absolute top-10 left-5 sm:top-20 sm:left-10 w-16 h-16 sm:w-20 sm:h-20 bg-primary/20 rounded-full blur-xl animate-pulse" />
+                    <div className="absolute bottom-10 right-5 sm:bottom-20 sm:right-10 w-24 h-24 sm:w-32 sm:h-32 bg-primary/10 rounded-full blur-2xl animate-pulse delay-1000" />
+
+                    {/* Main Content */}
+                    <div className="relative z-30 text-center text-white max-w-4xl mx-auto">
+                        <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1.5 sm:px-4 sm:py-2 mb-4 sm:mb-6">
                             <Sparkles className="h-4 w-4 text-yellow-400" />
-                            <span className="text-sm font-medium">Premium Real Estate Services</span>
+                            <span className="text-xs sm:text-sm font-medium">Premium Real Estate Services</span>
                         </div>
-                        <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+
+                        <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6 leading-tight">
                             Jelajahi Daftar Hunian
                             <span className="block bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
                                 Bersama Tapera
                             </span>
                         </h1>
-                        <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed opacity-90">
-                            Temukan hunian yang sesuai dengan kebutuhan Anda dari berbagai pengembang terpercaya yang telah terdaftar di SI Kumbang Tapera.
+
+                        <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed opacity-90">
+                            Temukan hunian yang sesuai dengan kebutuhan Anda dari berbagai pengembang terpercaya
+                            yang telah terdaftar di SI Kumbang Tapera.
                         </p>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center px-2">
                             <Button
                                 size="lg"
-                                className="text-lg px-8 py-6 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-xl hover:cursor-pointer"
+                                className="text-sm sm:text-lg px-6 sm:px-8 py-4 sm:py-6 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-xl"
                                 onClick={() => handleNavClick("list-property")}
                             >
                                 Lihat Semua Hunian
@@ -134,7 +141,7 @@ export default function ServicesPage() {
                             <Button
                                 size="lg"
                                 variant="outline"
-                                className="text-lg px-8 py-6 bg-white/10 border-white/20 text-white hover:bg-white/20 backdrop-blur-sm"
+                                className="text-sm sm:text-lg px-6 sm:px-8 py-4 sm:py-6 bg-white/10 border-white/20 text-white hover:bg-white/20 backdrop-blur-sm"
                             >
                                 <Phone className="mr-2 h-5 w-5" />
                                 Hubungi Bantuan

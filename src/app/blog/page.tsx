@@ -91,15 +91,23 @@ export default function BlogPage() {
 
             <main className="flex-1">
                 {/* Hero Section */}
-                <section className="relative w-full h-[300px] flex items-center justify-center overflow-hidden">
+                <section className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] flex items-center justify-center overflow-hidden">
+                    {/* Overlay Gradient */}
                     <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40 z-10" />
-                    <div className="relative z-20 px-4 md:px-6 text-center text-white">
-                        <Badge variant="secondary" className="mb-4">
+
+                    {/* Content */}
+                    <div className="relative z-20 px-4 sm:px-6 text-center text-white max-w-3xl w-full">
+                        <Badge variant="secondary" className="mb-3 sm:mb-4 text-sm sm:text-base">
                             Berita & Artikel
                         </Badge>
-                        <h1 className="text-4xl md:text-5xl font-bold mb-4">Informasi Terkini Seputar Hunian & Tapera</h1>
-                        <p className="text-xl max-w-2xl mx-auto">
-                            Temukan berita, edukasi, dan artikel menarik seputar perumahan, kebijakan Tapera, serta tips kepemilikan hunian yang layak dan terjangkau.
+
+                        <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-3 sm:mb-4 leading-tight">
+                            Informasi Terkini Seputar Hunian & Tapera
+                        </h1>
+
+                        <p className="text-sm sm:text-lg md:text-xl mx-auto px-2 sm:px-0">
+                            Temukan berita, edukasi, dan artikel menarik seputar perumahan, kebijakan Tapera,
+                            serta tips kepemilikan hunian yang layak dan terjangkau.
                         </p>
                     </div>
                 </section>
