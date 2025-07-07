@@ -1,103 +1,309 @@
-import Image from "next/image";
+"use client"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Star, MapPin, Home, Users, TrendingUp, Phone, Mail, ArrowRight } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
+import { Header } from "@/components/header"
+import { Footer } from "@/components/footer"
 
-export default function Home() {
+export default function Homepage() {
+  const handleNavClick = (sectionId: string) => {
+    // setMobileMenuOpen(false)
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="flex flex-col min-h-screen">
+      {/* Header */}
+      <Header></Header>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+      <main className="flex-1">
+        {/* Hero Section */}
+        <section className="relative w-full h-[600px] md:h-[700px] flex items-center justify-center overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/30 z-10" />
+          <Image
+            src="https://gardens.id/wp-content/uploads/2024/09/Perumahan-Subsidi-di-Indonesia.jpeg"
+            alt="Luxury real estate property"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="relative z-20 container px-4 md:px-6 text-center text-white text-shadow-lg">
+            {/* <Badge variant="secondary" className="mb-4">
+              #1 Real Estate Agency
+            </Badge> */}
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+              Mewujudkan Rumah Layak
+              <span className="text-gray-400 block">untuk Semua</span>
+            </h1>
+            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed">
+              Memberikan akses kepemilikan rumah yang layak, terjangkau, dan berkeadilan bagi seluruh rakyat Indonesia melalui program-program pemerintah yang transparan dan inklusif
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" className="text-lg px-8 py-6 hover:cursor-pointer">
+                <Link href="/product">
+                  Cari Rumah
+                </Link>
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="text-lg px-8 py-6 bg-white/10 border-white/20 text-white hover:bg-white/20 hover:cursor-pointer"
+                onClick={() => handleNavClick("program")}
+              >
+                Lihat Program
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Company Overview */}
+        <section className="w-full py-16 md:py-24 bg-muted/50">
+          <div className="px-4 md:px-6">
+            <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+              <div className="space-y-6">
+                <div className="space-y-4">
+                  <Badge variant="outline">Tentang Kami</Badge>
+                  <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+                    Mewujudkan Hunian Layak dan Terjangkau untuk Seluruh Rakyat Indonesia
+                  </h2>
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    Sejak 2010, kami berkomitmen menyediakan akses terhadap perumahan yang layak, terjangkau, dan berkualitas
+                    bagi seluruh lapisan masyarakat. Melalui kolaborasi dengan berbagai pihak dan program pemerintah, kami
+                    mendukung terciptanya kehidupan yang lebih baik melalui kepemilikan rumah yang adil dan merata.
+                  </p>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-primary">10.000+</div>
+                    <div className="text-sm text-muted-foreground">Keluarga Terbantu</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-primary">15+</div>
+                    <div className="text-sm text-muted-foreground">Tahun Pengabdian</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-primary">100+</div>
+                    <div className="text-sm text-muted-foreground">Kawasan Perumahan</div>
+                  </div>
+                </div>
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold">Nilai & Komitmen Kami</h3>
+                  <ul className="space-y-2 text-muted-foreground">
+                    <li className="flex items-center">
+                      <div className="w-2 h-2 bg-primary rounded-full mr-3" />
+                      Transparansi dan akuntabilitas dalam setiap proses
+                    </li>
+                    <li className="flex items-center">
+                      <div className="w-2 h-2 bg-primary rounded-full mr-3" />
+                      Fokus pada kesejahteraan masyarakat berpenghasilan rendah
+                    </li>
+                    <li className="flex items-center">
+                      <div className="w-2 h-2 bg-primary rounded-full mr-3" />
+                      Inovasi dalam pengelolaan dan distribusi properti rakyat
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="relative">
+                <Image
+                  src="https://gardens.id/wp-content/uploads/2024/09/Perumahan-Subsidi-di-Indonesia.jpeg"
+                  alt="Program Perumahan Pemerintah"
+                  width={600}
+                  height={500}
+                  className="w-[600px] h-[500px] rounded-lg shadow-lg"
+                />
+                <div className="absolute -bottom-6 -right-6 bg-primary text-primary-foreground p-6 rounded-lg shadow-lg">
+                  <div className="text-2xl font-bold">98%</div>
+                  <div className="text-sm">Tingkat Kepuasan Warga</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        {/* Services Section */}
+        <section id="program" className="w-full py-16 md:py-24 bg-muted/50">
+          <div className="px-4 md:px-6">
+            <div className="text-center mb-12">
+              <Badge variant="outline" className="mb-4">
+                Program Pemerintah
+              </Badge>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Program Unggulan untuk Akses Hunian yang Layak</h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Pemerintah hadir memberikan solusi properti yang terjangkau, adil, dan berkelanjutan bagi masyarakat.
+                Jelajahi program yang dirancang untuk mendukung impian memiliki rumah sendiri.
+              </p>
+            </div>
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              <Card className="group hover:shadow-lg transition-shadow">
+                <CardContent className="p-6">
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                    <Home className="h-6 w-6 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-3">Rumah Subsidi</h3>
+                  <p className="text-muted-foreground mb-4">
+                    Program rumah dengan harga terjangkau dan cicilan ringan khusus untuk masyarakat berpenghasilan rendah.
+                  </p>
+                  <Button variant="ghost" className="p-0 h-auto font-semibold text-primary">
+                    Lihat Detail <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </CardContent>
+              </Card>
+              <Card className="group hover:shadow-lg transition-shadow">
+                <CardContent className="p-6">
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                    <MapPin className="h-6 w-6 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-3">Bantuan Renovasi Rumah</h3>
+                  <p className="text-muted-foreground mb-4">
+                    Dukungan finansial bagi masyarakat yang ingin memperbaiki rumah tidak layak huni agar menjadi lebih sehat dan aman.
+                  </p>
+                  <Button variant="ghost" className="p-0 h-auto font-semibold text-primary">
+                    Lihat Detail <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </CardContent>
+              </Card>
+              <Card className="group hover:shadow-lg transition-shadow">
+                <CardContent className="p-6">
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                    <TrendingUp className="h-6 w-6 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-3">KPR Bersubsidi</h3>
+                  <p className="text-muted-foreground mb-4">
+                    Skema Kredit Pemilikan Rumah (KPR) dengan bunga rendah dan tenor panjang yang difasilitasi pemerintah.
+                  </p>
+                  <Button variant="ghost" className="p-0 h-auto font-semibold text-primary">
+                    Lihat Detail <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+            <div className="text-center mt-12">
+              <Button size="lg">
+                Lihat Semua Program
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </div>
+          </div>
+        </section>
+
+
+        {/* Testimonials Section */}
+        <section className="w-full py-16 md:py-24 bg-muted/50">
+          <div className="px-4 md:px-6">
+            <div className="text-center mb-12">
+              <Badge variant="outline" className="mb-4">
+                Testimoni Masyarakat
+              </Badge>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Cerita Nyata dari Penerima Manfaat</h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Dengarkan langsung kisah para warga yang telah merasakan manfaat dari program hunian pemerintah. Karena rumah layak adalah hak setiap warga negara.
+              </p>
+            </div>
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              <Card>
+                <CardContent className="p-6">
+                  <div className="flex items-center mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                    ))}
+                  </div>
+                  <blockquote className="text-muted-foreground mb-4">
+                    &quot;Dulu kami hanya bisa menyewa rumah petakan. Setelah mengikuti program rumah subsidi, kami akhirnya memiliki rumah sendiri dengan cicilan ringan.&quot;
+                  </blockquote>
+                  <div className="flex items-center">
+                    <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-3">
+                      <Users className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <div className="font-semibold">Budi & Siti</div>
+                      <div className="text-sm text-muted-foreground">Penerima Rumah Subsidi</div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardContent className="p-6">
+                  <div className="flex items-center mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                    ))}
+                  </div>
+                  <blockquote className="text-muted-foreground mb-4">
+                    &quot;Rumah kami sempat rusak parah dan tidak layak huni. Alhamdulillah, bantuan renovasi dari pemerintah membuat rumah kami kembali nyaman dan aman.&quot;
+                  </blockquote>
+                  <div className="flex items-center">
+                    <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-3">
+                      <Users className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <div className="font-semibold">Pak Slamet</div>
+                      <div className="text-sm text-muted-foreground">Penerima Bantuan Renovasi</div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardContent className="p-6">
+                  <div className="flex items-center mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                    ))}
+                  </div>
+                  <blockquote className="text-muted-foreground mb-4">
+                    &quot;Program KPR subsidi sangat membantu kami memiliki rumah impian, dengan bunga rendah dan proses yang mudah. Terima kasih kepada semua pihak!&quot;
+                  </blockquote>
+                  <div className="flex items-center">
+                    <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-3">
+                      <Users className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <div className="font-semibold">Ayu & Rendi</div>
+                      <div className="text-sm text-muted-foreground">Penerima KPR Subsidi</div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+
+        {/* CTA Section */}
+        <section id="contact" className="w-full py-16 md:py-24 bg-primary text-primary-foreground">
+          <div className="px-4 md:px-6 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Siap Bermitra dengan Tapera?</h2>
+            <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
+              Jadilah bagian dari solusi hunian nasional. Tim kami siap membantu Anda memahami proses kemitraan dengan BP Tapera.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" variant="secondary" className="text-lg px-8 py-6">
+                <Phone className="mr-2 h-5 w-5" />
+                Hubungi Kami: (021) 1234 5678
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="text-lg px-8 py-6 border-white/20 text-white hover:bg-white/10 bg-transparent"
+              >
+                <Mail className="mr-2 h-5 w-5" />
+                Ajukan Pertanyaan
+              </Button>
+            </div>
+          </div>
+        </section>
+
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+      <Footer></Footer>
     </div>
-  );
+  )
 }
